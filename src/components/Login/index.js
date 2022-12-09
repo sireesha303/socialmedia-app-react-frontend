@@ -77,7 +77,6 @@ const Login = (props) =>{
     return(
         <div className="app-container">
             <form className="form-container" onSubmit={onFormSubmit}>
-                <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="jobby-webstire-logo" className='logo-img'/>
                 <div className='username-password-container'>
                     {renderUsernameField()}
                     {renderPasswordField()}

@@ -1,0 +1,54 @@
+.header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.nav-link{
+    color: white;
+}
+
+
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-create-btns-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+.content{
+    /* margin-top: 50px;
+    margin-bottom: 100px; */
+    width: 100%;
+    background-color: rgb(212, 203, 65);
+    padding: 10px;
+}
+
+.popup-content{
+    width: 40%!important;
+    height: auto!important;
+}
+
+.close-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.long-description-input{
+    height: 100px;
+    /* width: 100px; */
+
+}
+
+.profile-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
