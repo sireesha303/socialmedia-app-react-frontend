@@ -11,30 +11,35 @@ const Login = (props) =>{
 
     const onLoginSuccess = (jwtToken) =>{
         const {history} = props
-        Cookies.set('jobby_app_jwt_token',jwtToken,{expires:2, path: "/",});
+        Cookies.set('social-media-app-token',jwtToken,{expires:2, path: "/",});
         history.replace("/");
     }
 
     const onLoginFailure = (errorMsg) =>{
-        console.log("in login failed func")
 
         setLoginError({showLoginError:true,loginErrorMsg:errorMsg})
     }
 
     const onFormSubmit = async event => {
         event.preventDefault();
-        const url = "https://apis.ccbp.in/login"
-
-        const options ={
+        // const url = "https://social-media-app.up.railway.app/user/login/"
+        
+        const url = 'http://127.0.0.1:8000/user/login/'
+        const options= {
             method: 'POST',
             body: JSON.stringify({ username:username,password:password}),
+            headers:{
+                'Content-Type':'application/json',
+                'Accept': 'application/json'
+                   
+            },
         };
 
         const response = await fetch(url,options);
         const data = await response.json();
 
         if(response.ok === true){
-            onLoginSuccess(data.jwt_token)
+            onLoginSuccess(data.access)
         }
         else{
             onLoginFailure(data.error_msg)
@@ -69,7 +74,7 @@ const Login = (props) =>{
         )
     }
 
-    const isLoggedIn =  Cookies.get("jobby_app_jwt_token");
+    const isLoggedIn =  Cookies.get("social-media-app-token");
 
     if(isLoggedIn !== undefined){
         return <Redirect to="/" />;
